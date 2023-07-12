@@ -1,38 +1,74 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Proyecto de smart
 
-## Getting Started
+Introduction
 
-First, run the development server:
+Se utilizó pg, pg-hstore, pg-promise, sequelize" para el backend
+además de sequelice en la sincronizacion y creacion de tablas y operaciones CRUD se usó postgres
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+del lado del front utilicé el framework nextjs basico para armar desde cero su estructura, apoyarme en React para los componentes de inicio de sesion y login,
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1 [GET] /api/user
+Si todo está bien al recuperar las publicaciones de la base de datos:
+responde con el código de estado HTTP 200.
+devuelve el siguiente JSON: allUsers
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+2 [GET] /api/user/:id
+Si se encuentra la publicación con lo especificado :id
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+devolver el código de estado HTTP 200.
+devuelve el siguiente JSON: user, en respuesta al objeto obtenido en la base de datos
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Si hay un error al recuperar la publicación de la base de datos:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+responde con el código de estado HTTP 400.
+devuelve el siguiente JSON: { message: "Usuario no encontrado" }
 
-## Learn More
+3 [POST] /api/user
+Si al cuerpo de la solicitud le ejecutamos un metodo post
 
-To learn more about Next.js, take a look at the following resources:
+responda con el código de estado HTTP 200
+devuelve el siguiente JSON: newUser, en respuesta al nuevo usuario creado en la base de datos
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4 [UP] /api/user/
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+el :id vendrá por body
 
-## Deploy on Vercel
+Si no se encuentra la publicación con lo especificado :id
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+devolver el código de estado HTTP 200(No encontrado).
+devuelve el siguiente JSON: { message: "Usuario actualizado exitosamente" }
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+4 [!Fallos] /api/user/
+Si se encuentras fallos en las ejecutaciónes anteriores se configuró de tal forma que:
+
+devolver el código de estado HTTP 404(No encontrado).
+devuelve el siguiente JSON: { message: error.message, object: error }
+Este mensaje nos dará un objeto en donde la propiedad message nos dirá exactamente el error y
+la propiedad object nos dará todo el objeto relacionado al error del HTTP 404.
+
+Ayudantes de persistencia de bases de datos
+el archivo user.js contiene los diferentes metodos utilizados para conocer informacion de la base de datos
+
+findAll(): llama todas los objetos almacenadas en la tabla seleccionada
+findByPk(): este método espera un idúnico argumento y devuelve una publicacion correspondiente al objeto encontrado.
+update(): acepta los argumentos existentes, en base al :id proporcionado el resuelve el recuento de registros actualizados. y nos avisa que el registro se actualizó correctamente.
+
+Esquema de los parametros introducidos en la base de datos
+Un usuario en la base de datos tiene la siguiente estructura:
+{
+name: STRING,
+email: STRING
+password: STRING
+}
+
+Notas importantes
+Tenga en cuenta los valores proporcionados en el archivo database.js para que lo configuré deacuerdo a su entorno de desarrollo y/o computadora
+puede probar netamente el trabajo del back manualmente usando Postman o imsonia.
+Puede crear archivos adicionales, pero no mueva ni cambie el nombre de archivos o carpetas existentes si no tiene conocimientos solidos del lenguaje y las tecnologias usadas.
+No modifique su package.jsonarchivo excepto para instalar bibliotecas adicionales o agregar scripts adicionales. No actualice las bibliotecas existentes .
+En su solución, es esencial que siga las mejores prácticas y produzca resultados limpios y profesionales, puede apoyarse de principios solid, DRY y otros.
+
+Ejecución del programa
+ejecute npm run dev para levantar el sevidor
+revise en su entorno de producción 0.0.0.0:3000 o en su navegador http://localhost:3000 para visualizar el funcionamiento del programa
+Si desea ver un poco más el funcionamiento del back desde postman o imsonia puede validar las rutas y ejecutar pruebas en cada una de ellas, recuerde que el back está almacenado en la carpeta api por lo que la ruta del back se valida en http://localhost:3000/api/user, se especifica user como el archivo que tiene incorporado en sí el unico service o manejador.

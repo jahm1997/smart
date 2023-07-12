@@ -29,7 +29,7 @@ export default async function handler(req, res) {
       res.status(200).json({ message: "Usuario actualizado exitosamente" });
     }
   } catch (error) {
-    // res.status(500).json({ message: error.message, object: error });
-    res.status(500).json({ message: error.message });
+    res.status(500).json({ message: error.message, object: error });
+    // res.status(400).json({ message: error.message });
   }
 }
