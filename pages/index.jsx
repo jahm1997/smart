@@ -10,21 +10,30 @@ import {
    styled,
    Toolbar, 
    Hidden,
-   Paper} 
+   Paper,
+   List,
+   ListItemButton,
+   ListItemIcon,
+   ListItemText} 
    from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useState } from "react";
 import Modal from "./components/Ventana"
 import Navbar from "./components/Navbar";
 import Cajon from "./components/Cajon";
+import Index from "./components/Index";
 
 const CustomToolbar = styled(Toolbar)(({ theme }) => ({
   ...theme.mixins.toolbar
 }));
-const Content = styled(Container)(({ theme }) => ({
+const Content = styled("div")(({ theme }) => ({
   flexGrow: 1,
   backgroundColor: theme.palette.background.default,
   padding: theme.spacing(3)
+}));
+const Root = styled("div")(({ theme }) => ({
+  display: 'flex',
+  backgroundColor: theme.palette.background.default,
 }));
 const MenuBoton = styled(IconButton)(({ theme }) => ({
   marginRight: theme.spacing(2),
@@ -68,10 +77,9 @@ export default function Home() {
     setCaja(!caja)
   }
 
-
   return (
     <ThemeProvider theme={theme}>
-      <Content  theme={theme} sx={{display: "flex"}}>
+      <Root theme={theme} >
         <Navbar accionCaja={accionCaja} AppNavbar={AppNavbar} MenuBoton={MenuBoton} CustomToolbar={CustomToolbar} Title={Title}/>
         <Paper sx={{ display: { md: 'block', xs: 'none' } }} >
           <Cajon open={true} variant="permanent" Drawere={Drawere} CustomToolbar={CustomToolbar} theme={theme} ></Cajon>
@@ -79,14 +87,11 @@ export default function Home() {
         <Paper sx={{ display: { md: 'block', xs: 'none' } }} >
           <Cajon open={caja} variant="temporary" Drawere={Drawere} CustomToolbar={CustomToolbar} theme={theme} onClose={accionCaja}></Cajon>
         </Paper>
-        <Content >
-          <CustomToolbar/>
-            <br />
-          <Modal apertura={open} handleClose={handleClose} ></Modal> 
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi mollitia culpa libero nihil ducimus laboriosam placeat ipsam odio molestias vero, exercitationem officia blanditiis modi facilis. Nesciunt necessitatibus nobis rerum amet.
-          <Button variant="contained" onClick={handleOpen}>Editar perfil</Button>
-        </Content>
-      </Content>        
+        < Content   >
+          <CustomToolbar></CustomToolbar>
+          <Index></Index>
+        </Content >
+      </Root>
     </ThemeProvider>
   );
 }

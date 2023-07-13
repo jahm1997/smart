@@ -1,14 +1,12 @@
 import { ArrowRight, Home } from "@mui/icons-material";
 import SettingsIcon from '@mui/icons-material/Settings';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { Divider, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Tooltip } from "@mui/material";
 import HomeIcon from '@mui/icons-material/Home';
 
 export default function Lista() {
     return (
-        <List component="nav" >
-
-            {/* <Divider></Divider> */}
-
+        <List component="nav" sx={{width: 240}} >
             <ListItemButton component="a" href="#customized-list">
               <ListItemIcon sx={{ fontSize: 20 }}>🔥</ListItemIcon>
               <ListItemText
@@ -23,16 +21,16 @@ export default function Lista() {
             </ListItemButton>
             <Divider />
             <ListItemButton>
-            <ListItemIcon>
-                    <HomeIcon color="primary" ></HomeIcon>
-                </ListItemIcon>
-                <ListItemText primary="Home" ></ListItemText>
+              <ListItemIcon>
+                <HomeIcon color="primary" ></HomeIcon>
+              </ListItemIcon>
+              <ListItemText primary="Home" ></ListItemText>
             </ListItemButton>
             <Divider />
             <ListItem component="div" disablePadding>
               <ListItemButton sx={{ height: 56 }}>
                 <ListItemIcon>
-                  <Home color="primary" />
+                  <AccountCircleIcon color="primary" ></AccountCircleIcon>
                 </ListItemIcon>
                 <ListItemText
                   primary="Perfil"
@@ -73,8 +71,9 @@ export default function Lista() {
                     },
                   }}
                 >
-                  <SettingsIcon/>
-                  <ArrowRight sx={{ position: 'absolute', right: 4, opacity: 0 }} />
+                  <ArrowRight sx={{ position: 'absolute', right: 4, opacity: 0 }} >
+                    <SettingsIcon/>
+                  </ArrowRight>
                 </IconButton>
               </Tooltip>
             </ListItem>
