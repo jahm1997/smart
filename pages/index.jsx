@@ -92,6 +92,7 @@ export default function Home() {
       if (res.status === 200) {
         const resp = res.data;
         setObjeto(resp);
+      }else{
       }
     } catch (error) {
       console.log("Error en la petición:", error);
