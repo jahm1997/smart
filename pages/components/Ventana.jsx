@@ -1,4 +1,4 @@
-import { Alert, Box, Button, Container, Modal, TableContainer, TextField, Typography } from "@mui/material";
+import { Box, Button,  Modal, TextField, Typography } from "@mui/material";
 import AddReactionIcon from '@mui/icons-material/AddReaction';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import { useState } from "react";
@@ -7,10 +7,10 @@ import axios from "axios";
 export default function Ventana({objeto, abierto, handleCerrar}) {
 
     const [user,setUser]=useState({
-        id:objeto.id,
-        name:objeto.name,
-        lastName:objeto.lastName,
-        email:objeto.email,
+        id:objeto?.id,
+        name:objeto?.name,
+        lastName:objeto?.lastName,
+        email:objeto?.email,
         password:""
     })
 
