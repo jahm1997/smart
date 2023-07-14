@@ -5,7 +5,13 @@ Introduction
 Se utilizó pg, pg-hstore, pg-promise, sequelize" para el backend
 además de sequelice en la sincronizacion y creacion de tablas y operaciones CRUD se usó postgres
 
-del lado del front utilicé el framework nextjs basico para armar desde cero su estructura, apoyarme en React para los componentes de inicio de sesion y login,
+del lado del front utilicé el framework nextjs basico para armar desde cero su estructura, librería Material-ui en su última versión para estilos, apoyo en React para los componentes de inicio de sesion y login con sus respectivas validaciones,
+
+Ejecución del programa
+
+ejecute "npm run dev" para levantar el sevidor
+revise en su entorno de producción 0.0.0.0:3000 o en su navegador http://localhost:3000 para visualizar el funcionamiento del programa
+Si desea ver un poco más el funcionamiento del back desde postman o imsonia puede validar las rutas y ejecutar pruebas en cada una de ellas, recuerde que el back está almacenado en la carpeta api por lo que la ruta del back se valida en http://localhost:3000/api/user, se especifica user como el archivo que tiene incorporado en sí el unico service o manejador.
 
 1 [GET] /api/user
 
@@ -50,7 +56,7 @@ Este mensaje nos dará un objeto en donde la propiedad message nos dirá exactam
 la propiedad object nos dará todo el objeto relacionado al error del HTTP 404.
 
 Ayudantes de persistencia de bases de datos
-el archivo user.js contiene los diferentes metodos utilizados para conocer informacion de la base de datos
+el archivo user.js contiene los diferentes metodos utilizados para conocer informacion de la base de datos, todo fue realizado en un solo documento para el ahorro de tiempo de trabajo y ganancia del mismo
 
 findAll(): llama todas los objetos almacenadas en la tabla seleccionada
 findByPk(): este método espera un idúnico argumento y devuelve una publicacion correspondiente al objeto encontrado.
@@ -59,6 +65,7 @@ update(): acepta los argumentos existentes, en base al :id proporcionado el resu
 Esquema de los parametros introducidos en la base de datos
 Un usuario en la base de datos tiene la siguiente estructura:
 {
+id: Number
 name: STRING,
 email: STRING
 password: STRING
@@ -77,9 +84,3 @@ Se implementó sistema de estilos diferente a los proporcionados por la ultima v
 JWT
 Fue añadido jsonwebtoken para incrustar con token la contraseña en la base de datos,
 esto para dar mas seguridad, además de no enviarla por Res al front.
-
-Ejecución del programa
-
-ejecute npm run dev para levantar el sevidor
-revise en su entorno de producción 0.0.0.0:3000 o en su navegador http://localhost:3000 para visualizar el funcionamiento del programa
-Si desea ver un poco más el funcionamiento del back desde postman o imsonia puede validar las rutas y ejecutar pruebas en cada una de ellas, recuerde que el back está almacenado en la carpeta api por lo que la ruta del back se valida en http://localhost:3000/api/user, se especifica user como el archivo que tiene incorporado en sí el unico service o manejador.
