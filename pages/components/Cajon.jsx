@@ -1,15 +1,18 @@
-import { Divider} from '@mui/material'
-import React from 'react'
-import Lista from './Lista'
+import { Divider, Drawer } from '@mui/material';
+import React from 'react';
+import Lista from './Lista';
 
-
-export default function Cajon({variant, Drawere, CustomToolbar, theme, open, onClose=null, handleAbrir }) {
+export default function Cajon({ variant, Drawere, CustomToolbar, theme, open, onClose = null, handleAbrir }) {
+  const handleClose = onClose ? onClose : null;
 
   return (
-    <Drawere variant={variant} classes={{paper:240 }} anchor="left" open={open} onClose={onClose? onClose: null} >
-        <CustomToolbar />
-        <Divider></Divider>
-        <Lista handleAbrir={handleAbrir} ></Lista>
-    </Drawere>
-  )
+    <Drawer sx={{
+      width: 240,
+      flexShrink: 0
+    }} variant={variant} classes={{ paper: 240 }} anchor="left" open={open} onClose={handleClose}>
+      <CustomToolbar />
+      <Divider />
+      <Lista handleAbrir={handleAbrir} />
+    </Drawer>
+  );
 }

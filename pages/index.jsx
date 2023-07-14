@@ -5,7 +5,9 @@ import {
    Typography,
    styled,
    Toolbar,
-   Paper,} 
+   Paper,
+   useMediaQuery
+  } 
    from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useState } from "react";
@@ -37,17 +39,6 @@ const MenuBoton = styled(IconButton)(({ theme }) => ({
 }));
 const Title = styled(Typography)(({ theme }) => ({
   flexGrow:1
-}));
-const AppNavbar = styled(AppBar)(({ theme }) => ({
-  [theme.breakpoints.up("md")]:{
-    width: "calc(100% - 240px)",
-    marginLeft:240
-  },
-}));
-const Drawere = styled(Drawer)(({ theme }) => ({
-
-  width: 240,
-  flexShrink: 0
 }));
 
 
@@ -111,12 +102,12 @@ export default function Home() {
     return (
       <ThemeProvider theme={theme}>
         <Root theme={theme} >
-          <Navbar setObjeto={setObjeto} accionCaja={accionCaja} AppNavbar={AppNavbar} MenuBoton={MenuBoton} CustomToolbar={CustomToolbar} Title={Title}/>
+          <Navbar setObjeto={setObjeto} accionCaja={accionCaja} MenuBoton={MenuBoton} CustomToolbar={CustomToolbar} Title={Title}/>
           <Paper sx={{ display: { md: 'block', xs: 'none' } }} >
-            <Cajon open={true} handleOpen={handleOpen} variant="permanent" Drawere={Drawere} CustomToolbar={CustomToolbar} theme={theme} handleAbrir={handleAbrir} ></Cajon>
+            <Cajon open={true} handleOpen={handleOpen} variant="permanent" CustomToolbar={CustomToolbar} theme={theme} handleAbrir={handleAbrir} ></Cajon>
           </Paper>
           <Paper sx={{ display: { md: 'block', xs: 'none' } }} >
-            <Cajon open={caja} handleOpen={handleOpen} variant="temporary" Drawere={Drawere} CustomToolbar={CustomToolbar} theme={theme} onClose={accionCaja} handleAbrir={handleAbrir}></Cajon>
+            <Cajon open={caja} handleOpen={handleOpen} variant="temporary"  CustomToolbar={CustomToolbar} theme={theme} onClose={accionCaja} handleAbrir={handleAbrir}></Cajon>
           </Paper>
           < Content   >
             <CustomToolbar variant="dense" ></CustomToolbar>

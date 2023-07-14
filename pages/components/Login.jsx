@@ -3,6 +3,8 @@ import CoPresentIcon from '@mui/icons-material/CoPresent';
 import { Box, Button, Container, Grid, TextField, Typography } from '@mui/material'
 import React, { useState } from 'react'
 import { useRouter } from 'next/router';
+import Image from 'next/image';
+
 
 const Login = ({inicio }) => {
 
@@ -56,8 +58,8 @@ const Login = ({inicio }) => {
                         // backgroundColor: 'green',
                         display: { xs: 'none', sm: 'block' },
                 }}>
-                    <Box>
-                        <img src={imageUrl} alt="Logo SmartInfo" />
+                    <Box >
+                        <Image src={imageUrl} width="500" height="500" alt="Logo SmartInfo" />
                     </Box>
                 </Grid>
                 

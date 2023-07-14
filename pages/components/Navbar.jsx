@@ -1,26 +1,32 @@
-import { AppBar, Button, IconButton, Toolbar, Typography, styled } from '@mui/material'
+import { AppBar, Button, IconButton, Toolbar, Typography, styled, useMediaQuery } from '@mui/material';
 import MenuOpenIcon from '@mui/icons-material/MenuOpen';
 import FilterDramaIcon from '@mui/icons-material/FilterDrama';
 import LogoutIcon from '@mui/icons-material/Logout';
-import React from 'react'
+import React from 'react';
 
-const Navbar = ({AppNavbar, MenuBoton, CustomToolbar, Title, accionCaja, setObjeto}) => {
+export default function Navbar({ AppNavbar, MenuBoton, CustomToolbar, Title, accionCaja, setObjeto }) {
+  const isMediumScreen = useMediaQuery((theme) => theme.breakpoints.down('md'));
+
   return (
-        <AppNavbar >
-            <CustomToolbar>
-                <MenuBoton onClick={()=> accionCaja()} color="inherit" aria-label="menu"  >
-                    <MenuOpenIcon></MenuOpenIcon>
-                </MenuBoton>
-                <Title variant='h6'  >
-                    <FilterDramaIcon sx={{marginRight: 2}} ></FilterDramaIcon>
-                    Smart Info
-                </Title>
-                <Button sx={{borderLeft:1}} onClick={() =>setObjeto({})} variant="text" color='inherit' >
-                    <LogoutIcon sx={{ marginRight:1 }} />Cerrar Sesion 
-                </Button>
-            </CustomToolbar>
-        </AppNavbar>
-  )
+    <AppBar
+      sx={{
+        width: isMediumScreen ? '100%' : 'calc(100% - 240px)',
+        marginLeft: isMediumScreen ? 0 : 240,
+      }}
+    >
+      <CustomToolbar>
+        <MenuBoton onClick={() => accionCaja()} color="inherit" aria-label="menu">
+          <MenuOpenIcon />
+        </MenuBoton>
+        <Title variant="h6">
+          <FilterDramaIcon sx={{ marginRight: 2 }} />
+          Smart Info
+        </Title>
+        <Button sx={{ borderLeft: 1 }} onClick={() => setObjeto({})} variant="text" color="inherit">
+          <LogoutIcon sx={{ marginRight: 1 }} />
+          Cerrar Sesion
+        </Button>
+      </CustomToolbar>
+    </AppBar>
+  );
 }
-
-export default Navbar

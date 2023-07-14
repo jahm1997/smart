@@ -2,6 +2,8 @@ import { Box, Container, Grid, TextField, Typography } from '@mui/material'
 import LoadingButton from '@mui/lab/LoadingButton';
 import React, { useState } from 'react'
 import axios from 'axios';
+import Image from 'next/image';
+
 
   var url = "http://api.weatherapi.com/v1/current.json?key=63cc260de670441e89d14341231407&q${}&aqi=no"
 
@@ -26,7 +28,7 @@ const Index = () => {
     setLoading(true)
     try {
       if(!city.trim()) throw {message:"Por favor el campo Ciudad es obligatorio"}
-      const res = await axios.get(`http://api.weatherapi.com/v1/current.json?key=63cc260de670441e89d14341231407&q=${city}&aqi=no`);
+      const res = await axios.get(`https://api.weatherapi.com/v1/current.json?key=63cc260de670441e89d14341231407&q=${city}&aqi=no`);
       if (res.status === 200) {
         const resp = res.data;
         setEstado({
@@ -102,7 +104,9 @@ const Index = () => {
                 marginTop:2,
                 display: "grid",
                 gap: 2,
-                textAlign: "center"
+                justifyItems:"center",
+
+                
               }}
             >
                 <Typography  
@@ -111,12 +115,14 @@ const Index = () => {
                 >
                   {estado.city}, {" " + estado.country}
                 </Typography>
-                <Box
-                  component="img"
+                <Image
+                  width="100"
+                  height="100"
                   alt={estado.conditionText}
-                  src={estado.icon}
+                  src={`https:${estado.icon}`}
                   sx={{
                     margin:"0 auto",
+                    
                     
                   }}
                   />

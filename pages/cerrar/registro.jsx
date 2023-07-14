@@ -5,13 +5,15 @@ import { Box, Button, Container, Grid, IconButton, ImageList, ImageListItem, Ima
 import React, { useState } from 'react'
 import { useRouter } from 'next/router';
 import axios from 'axios';
+import Image from 'next/image';
+
 
 const Registro = (inicio) => {
 
     const router = useRouter();
 
     const [image] = useState([
-        {id:1,url:"https://www.smartinfobusiness.com/imagenes/team/gabrial-villan.png", nombre: "Gabriel Villan", ocupacion: "Coordinador de Social Media"},
+        {id:1,url: "https://www.smartinfobusiness.com/imagenes/team/gabrial-villan.png", nombre: "Gabriel Villan", ocupacion: "Coordinador de Social Media"},
         {id:2,url: "https://www.smartinfobusiness.com/imagenes/team/gucci.png", nombre: "Gustavo Rojas ", ocupacion: "Ingeniero Senior I+D"},
         {id:3,url: "https://www.smartinfobusiness.com/imagenes/team/hector4.png", nombre:"Hector Díaz C ", ocupacion: "Gerente"},
         {id:4,url: "https://www.smartinfobusiness.com/imagenes/team/jhoana3.png", nombre:"Johanna Pantoja ", ocupacion: "Coordinador Administrativo"},
@@ -88,28 +90,28 @@ const Registro = (inicio) => {
                         Algunos del equipo smartinfo... 
                     </Box >
                     </ImageListItem>
-                    {image.map((item) => (
-                        <ImageListItem key={item.id}>
-                        <img
-                            src={`${item.url}?w=248&fit=crop&auto=format`}
-                            srcSet={`${item.url}?w=248&fit=crop&auto=format&dpr=2 2x`}
-                            alt={item.nombre}
-                            loading="lazy"
-                        />
-                        <ImageListItemBar
-                            title={item.nombre}
-                            subtitle={item.ocupacion}
-                            actionIcon={
-                            <IconButton
-                                sx={{ color: 'rgba(255, 255, 255, 0.54)' }}
-                                aria-label={`info about ${item.title}`}
-                            >
-                                <Link href="https://www.smartinfobusiness.com/quienes-somos" underline="none">
-                                    <InfoIcon />
-                                </Link>
-                            </IconButton>
-                            }
-                        />
+                        {image.map((item) => (
+                            <ImageListItem key={item.id}>
+                            <Image
+                                width="170"
+                                height="170"
+                                src={item.url}
+                                alt={item.nombre}
+                            />
+                            <ImageListItemBar
+                                title={item.nombre}
+                                subtitle={item.ocupacion}
+                                actionIcon={
+                                <IconButton
+                                    sx={{ color: 'rgba(255, 255, 255, 0.54)' }}
+                                    aria-label={`info about ${item.title}`}
+                                >
+                                    <Link href="https://www.smartinfobusiness.com/quienes-somos" underline="none">
+                                        <InfoIcon />
+                                    </Link>
+                                </IconButton>
+                                }
+                            />
                     </ImageListItem>
                     ))}
                     </ImageList>
