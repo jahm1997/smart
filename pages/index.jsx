@@ -92,9 +92,6 @@ export default function Home() {
       if (res.status === 200) {
         const resp = res.data;
         setObjeto(resp);
-      }else{
-        alert(" Usuario no encontrado")
-        setFailed(!failed)
       }
     } catch (error) {
       console.log("Error en la petición:", error);
@@ -106,7 +103,7 @@ export default function Home() {
   if(Object.keys(objeto).length === 0){
     return(
       <>
-        <Login failed={failed} inicio={inicio} setObjeto={setObjeto} setFailed={setFailed} ></Login>
+        <Login inicio={inicio} ></Login>
         <Aviso failed={failed} handlefailclose={handlefailclose} ></Aviso>
       </>
     )
