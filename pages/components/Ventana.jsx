@@ -4,7 +4,7 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import { useState } from "react";
 import axios from "axios";
 
-export default function Ventana({objeto, abierto, handleCerrar, handleAbrir}) {
+export default function Ventana({objeto, abierto, handleCerrar}) {
 
     const [user,setUser]=useState({
         id:objeto.id,

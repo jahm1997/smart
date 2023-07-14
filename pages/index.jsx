@@ -17,7 +17,7 @@ import {
    ListItemText} 
    from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Modal from "./components/Ventana"
 import Navbar from "./components/Navbar";
 import Cajon from "./components/Cajon";
@@ -25,6 +25,7 @@ import Index from "./components/Index";
 import Login from "./components/Login";
 import axios from "axios"
 import { useRouter } from "next/router";
+import  Aviso  from "./components/aviso"
 
 const CustomToolbar = styled(Toolbar)(({ theme }) => ({
   ...theme.mixins.toolbar
@@ -64,13 +65,12 @@ export default function Home() {
   
   
   const theme = createTheme();
-  const router = useRouter();
   
   const [open, setOpen] = useState(false);
   const [caja, setCaja] = useState(false);
   const [abierto, setAbierto] = useState(false);
   const [objeto, setObjeto] = useState({});
-
+  const [failed,setFailed] = useState(false)
 
   const handleClose = () => {
     setOpen(!open)
@@ -84,10 +84,17 @@ export default function Home() {
   const handleCerrar = () => {
     setAbierto(!abierto)
   }
+  const handlefailopen = () => {
+    setFailed(!failed)
+  }
+  const handlefailclose = () => {
+    setFailed(!failed)
+  }
 
   const accionCaja = () => {
     setCaja(!caja)
   }
+  
 
   const inicio = async (data) => {
     try {
@@ -95,9 +102,9 @@ export default function Home() {
       if (res.status === 200) {
         const resp = res.data;
         setObjeto(resp);
-        console.log("Respuesta correcta:", resp);
       } else {
-        // si algo sale mal
+        console.log("Cancel");
+        // handlefailopen()
       }
     } catch (error) {
       console.log("Error en la petición:", error);
@@ -105,12 +112,9 @@ export default function Home() {
     }
   }
 
-  const ver = () => {
-    console.log(objeto)
-  }
 
   if(Object.keys(objeto).length === 0){
-    return(<Login inicio={inicio} ></Login>)
+    return(<Login  inicio={inicio} setObjeto={setObjeto} ></Login>)
   }else{
     return (
       <ThemeProvider theme={theme}>
@@ -125,6 +129,7 @@ export default function Home() {
           < Content   >
             <CustomToolbar variant="dense" ></CustomToolbar>
             <Modal objeto={objeto} abierto={abierto} handleCerrar={handleCerrar} ></Modal>
+            <Aviso failed={failed} handlefailclose={handlefailclose} ></Aviso>
             <Index ></Index>
           </Content >
         </Root>

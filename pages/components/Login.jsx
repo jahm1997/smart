@@ -1,15 +1,15 @@
-import { ErrorSharp } from '@mui/icons-material'
 import LoginIcon from '@mui/icons-material/Login';
 import CoPresentIcon from '@mui/icons-material/CoPresent';
-import { Box, Button, Container, Grid, ImageList, ImageListItem, TextField, Typography } from '@mui/material'
+import { Box, Button, Container, Grid, TextField, Typography } from '@mui/material'
 import React, { useState } from 'react'
 import { useRouter } from 'next/router';
-import logo from "../dlogo.jpg"
 
-const Login = ({inicio}) => {
-    const router = useRouter();
+const Login = ({inicio, setObjeto}) => {
+
     const imageUrl = 'https://www.smartinfobusiness.com/recursos/imagenes/logo-smartinfo.svg';
-    const [user, setUser] = useState({
+    const router = useRouter();
+    
+    const [parametro, setParametro] = useState({
         email:"",
         password:""
     })
@@ -20,13 +20,13 @@ const Login = ({inicio}) => {
 
     const validateEmail = (email) =>{
         const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[A-Z]{2,}$/i;
-        return regex.test(user.email)
+        return regex.test(parametro.email)
     }
 
 
     const hableSubmit = (e) => {
         e.preventDefault();
-        if(validateEmail(user.email) ){
+        if(validateEmail(parametro.email) ){
             setError({
                 error:false,
                 menssage: ""
@@ -38,12 +38,13 @@ const Login = ({inicio}) => {
             })
         }
 
-        inicio(user)
+        inicio(parametro)
     }
 
     const registro = () =>{
         router.push('/cerrar/registro');
     }
+
 
     return (
         <Container sx={{alignItems:"center", marginTop:"3%"}} >
@@ -88,8 +89,8 @@ const Login = ({inicio}) => {
                             fullWidth={true}
                             helperText={error.menssage}
                             error={error.error}
-                            value={user.email}
-                            onChange={(event) => setUser({...user, email: event.target.value})}
+                            value={parametro.email}
+                            onChange={(event) => setParametro({...parametro, email: event.target.value})}
                             required
                             sx={{  
                                 margin:"2%",
@@ -108,15 +109,13 @@ const Login = ({inicio}) => {
                             fullWidth={true}
                             // helperText={error.menssage}
                             // error={error.error}
-                            value={user.password}
-                            onChange={(event) => setUser({...user, password: event.target.value})}
+                            value={parametro.password}
+                            onChange={(event) => setParametro({...parametro, password: event.target.value})}
                             required
 
                         ></TextField>
                         <Button type='submit' variant='contained' sx={{ margin:"2%"}} > Iniciar Sesion  <LoginIcon/> </Button>
                     </Box>
-                    <br />
-                    <br />
                     <Typography color={'CaptionText'} sx={{padding: 2}} >
                         ¿ Aun no tienes una cuenta ?
                     </Typography>
@@ -125,6 +124,7 @@ const Login = ({inicio}) => {
                         
                     </Typography>
                     <Button sx={{padding: 2}} onClick={registro} >Registrarse <CoPresentIcon sx={{marginLeft: 2}} /> </Button>
+                    
                 </Grid>
             </Grid>
         </Container>
