@@ -1,8 +1,10 @@
 import { AppBar, Button, IconButton, Toolbar, Typography, styled } from '@mui/material'
 import MenuOpenIcon from '@mui/icons-material/MenuOpen';
+import FilterDramaIcon from '@mui/icons-material/FilterDrama';
+import LogoutIcon from '@mui/icons-material/Logout';
 import React from 'react'
 
-const Navbar = ({AppNavbar, MenuBoton, CustomToolbar, Title, accionCaja}) => {
+const Navbar = ({AppNavbar, MenuBoton, CustomToolbar, Title, accionCaja, setObjeto}) => {
   return (
         <AppNavbar >
             <CustomToolbar>
@@ -10,10 +12,11 @@ const Navbar = ({AppNavbar, MenuBoton, CustomToolbar, Title, accionCaja}) => {
                     <MenuOpenIcon></MenuOpenIcon>
                 </MenuBoton>
                 <Title variant='h6'  >
-                    Joseph App
+                    <FilterDramaIcon sx={{marginRight: 2}} ></FilterDramaIcon>
+                    Smart Info
                 </Title>
-                <Button variant="text" color='inherit' >
-                    Login
+                <Button sx={{borderLeft:1}} onClick={() => setObjeto({})} variant="text" color='inherit' >
+                    <LogoutIcon sx={{ marginRight:1 }} />Cerrar Sesion 
                 </Button>
             </CustomToolbar>
         </AppNavbar>

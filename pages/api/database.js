@@ -3,13 +3,17 @@ import { Sequelize, DataTypes } from "sequelize";
 const sequelize = new Sequelize("smart", "postgres", "97113021369", {
   host: "localhost",
   dialect: "postgres",
-  logging: false,
-  alter: true,
+  logging: true,
+  alter: false,
   force: false,
 });
 
 const User = sequelize.define("user", {
   name: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  lastName: {
     type: DataTypes.STRING,
     allowNull: false,
   },

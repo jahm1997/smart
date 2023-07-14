@@ -46,7 +46,7 @@ export default function Lista() {
                   size="large"
                   sx={{
                     '& svg': {
-                      color: 'rgba(255,255,255,0.8)',
+                      color: 'black',
                       transition: '0.2s',
                       transform: 'translateX(0) rotate(0)',
                     },
@@ -71,9 +71,8 @@ export default function Lista() {
                     },
                   }}
                 >
-                  <ArrowRight sx={{ position: 'absolute', right: 4, opacity: 0 }} >
-                    <SettingsIcon/>
-                  </ArrowRight>
+                  <SettingsIcon></SettingsIcon>
+                  <ArrowRight sx={{ position: 'absolute', right: 4, opacity: 0 }} />
                 </IconButton>
               </Tooltip>
             </ListItem>

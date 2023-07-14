@@ -10,6 +10,18 @@ import CssBaseline from "@mui/material/CssBaseline";
 export default function App({ Component, pageProps }) {
   console.log("--> 👌 Server Online in port " + 3000);
 
+  var estado;
+
+  // fetch("http://localhost:3000/api/user")
+  //   .then((response) => response.json())
+  //   .then((data) => {
+  //     estado = data;
+  //   })
+  //   .catch((error) => {
+  //     // Maneja cualquier error ocurrido durante la solicitud
+  //     console.error(error);
+  //   });
+  // console.log(estado);
   return (
     <>
       <CssBaseline />
