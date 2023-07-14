@@ -8,20 +8,20 @@ export default function Aviso({ handlefailclose, failed }) {
             <Modal
                 sx={{
                     display: "flex",
-                    width: "auto",
+                    width: 450,
                     textAlign: "center",
-                    height: 500,
+                    height: 170,
                     alignItems: "center",
                     position: "absolute",
                     top: "50%",
                     left: "50%",
                     transform: "translate(-50%, -50%)",
                     // backgroundColor: "HighlightText",
-                    // backgroundColor: "ghostwhite",
+                    backgroundColor: "ghostwhite",
                     // backgroundColor: "lightblue",
-                    backgroundColor: "orchid",
+                    // backgroundColor: "orchid",
                     boxShadow: 30,
-                    p: 6,
+                    p: 3,
 
                 }}
 
