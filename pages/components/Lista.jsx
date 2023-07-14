@@ -4,10 +4,10 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { Divider, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Tooltip } from "@mui/material";
 import HomeIcon from '@mui/icons-material/Home';
 
-export default function Lista() {
+export default function Lista({handleAbrir}) {
     return (
         <List component="nav" sx={{width: 240}} >
-            <ListItemButton component="a" href="#customized-list">
+            <ListItemButton component="a" href="https://www.smartinfobusiness.com/">
               <ListItemIcon sx={{ fontSize: 20 }}>🔥</ListItemIcon>
               <ListItemText
                 sx={{ my: 0 }}
@@ -43,6 +43,7 @@ export default function Lista() {
               </ListItemButton>
               <Tooltip title="Project Settings">
                 <IconButton
+                  onClick={handleAbrir}
                   size="large"
                   sx={{
                     '& svg': {

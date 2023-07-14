@@ -130,7 +130,7 @@ const Registro = (inicio) => {
                     textAlign:"center",
                     justify:"center"
                     }} >
-                <h1>Registrarme</h1>
+                <h1>¡ Registrate !</h1>
                 <Typography>
                     Estás tomando la mejor opcion al registrarte en nuestra plataforma!
                     

@@ -27,7 +27,7 @@ const Agradecimiento = () => {
             </Button>
         }
         >
-        This is a success alert — check it out!
+        ¡Haz Creado una cuenta con nosotros! que maravillosa elección, por favor inicia sesión y usa de inmediato la app.
         </Alert>
     </Container>
   )

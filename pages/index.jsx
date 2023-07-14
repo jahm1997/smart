@@ -68,6 +68,7 @@ export default function Home() {
   
   const [open, setOpen] = useState(false);
   const [caja, setCaja] = useState(false);
+  const [abierto, setAbierto] = useState(false);
   const [objeto, setObjeto] = useState({});
 
 
@@ -75,8 +76,13 @@ export default function Home() {
     setOpen(!open)
   }
   const handleOpen = () => {
-    console.log(open)
     setOpen(!open)
+  }
+  const handleAbrir = () => {
+    setAbierto(!abierto)
+  }
+  const handleCerrar = () => {
+    setAbierto(!abierto)
   }
 
   const accionCaja = () => {
@@ -111,14 +117,14 @@ export default function Home() {
         <Root theme={theme} >
           <Navbar setObjeto={setObjeto} accionCaja={accionCaja} AppNavbar={AppNavbar} MenuBoton={MenuBoton} CustomToolbar={CustomToolbar} Title={Title}/>
           <Paper sx={{ display: { md: 'block', xs: 'none' } }} >
-            <Cajon open={true} variant="permanent" Drawere={Drawere} CustomToolbar={CustomToolbar} theme={theme} ></Cajon>
+            <Cajon open={true} handleOpen={handleOpen} variant="permanent" Drawere={Drawere} CustomToolbar={CustomToolbar} theme={theme} handleAbrir={handleAbrir} ></Cajon>
           </Paper>
           <Paper sx={{ display: { md: 'block', xs: 'none' } }} >
-            <Cajon open={caja} variant="temporary" Drawere={Drawere} CustomToolbar={CustomToolbar} theme={theme} onClose={accionCaja}></Cajon>
+            <Cajon open={caja} handleOpen={handleOpen} variant="temporary" Drawere={Drawere} CustomToolbar={CustomToolbar} theme={theme} onClose={accionCaja} handleAbrir={handleAbrir}></Cajon>
           </Paper>
           < Content   >
             <CustomToolbar variant="dense" ></CustomToolbar>
-            <Modal apertura={open} handleClose={handleClose} ></Modal>
+            <Modal objeto={objeto} abierto={abierto} handleCerrar={handleCerrar} ></Modal>
             <Index ></Index>
           </Content >
         </Root>

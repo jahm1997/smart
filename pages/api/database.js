@@ -4,7 +4,7 @@ const sequelize = new Sequelize("smart", "postgres", "97113021369", {
   host: "localhost",
   dialect: "postgres",
   logging: true,
-  alter: false,
+  alter: true,
   force: false,
 });
 

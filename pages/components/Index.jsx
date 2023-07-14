@@ -53,7 +53,7 @@ const Index = () => {
   return (
     <Container
       maxWidth="xs"
-      sx={{marginTop:"2%", align:'center', textAlign:"center"}}
+      sx={{ align:'center', textAlign:"center"}}
 
     >
 
@@ -109,7 +109,7 @@ const Index = () => {
                   variant='h4'
                   component="h2"
                 >
-                  {estado.city},{estado.country}
+                  {estado.city}, {" " + estado.country}
                 </Typography>
                 <Box
                   component="img"
@@ -120,10 +120,10 @@ const Index = () => {
                     
                   }}
                   />
-                  <Typography variant='h5' component="h3" >
+                  <Typography variant='h3' component="h2" >
                     {estado.temp} °C
                   </Typography>
-                  <Typography variant='h6' component="h4" >
+                  <Typography variant='h4' component="h3" >
                     {estado.conditionText}
                   </Typography>
             </Box>
