@@ -1,8 +1,5 @@
-import { Alert, Box, Button, Container, Modal, TableContainer, TextField, Typography } from "@mui/material";
-import AddReactionIcon from '@mui/icons-material/AddReaction';
+import { Box, Button, Modal, Typography } from "@mui/material";
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import { useState } from "react";
-import axios from "axios";
 
 export default function Aviso({ handlefailclose, failed }) {
 

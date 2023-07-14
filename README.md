@@ -71,6 +71,13 @@ Puede crear archivos adicionales, pero no mueva ni cambie el nombre de archivos 
 No modifique su package.jsonarchivo excepto para instalar bibliotecas adicionales o agregar scripts adicionales. No actualice las bibliotecas existentes .
 En su solución, es esencial que siga las mejores prácticas y produzca resultados limpios y profesionales, puede apoyarse de principios solid, DRY y otros.
 
+Extras
+Se implementó sistema de estilos diferente a los proporcionados por la ultima version
+
+JWT
+Fue añadido jsonwebtoken para incrustar con token la contraseña en la base de datos,
+esto para dar mas seguridad, además de no enviarla por Res al front.
+
 Ejecución del programa
 
 ejecute npm run dev para levantar el sevidor

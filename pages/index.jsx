@@ -1,20 +1,11 @@
 import {
-   Grid,
-   Box,
-   Button,
    AppBar,
    Drawer,
    IconButton,
    Typography,
-   Container,
    styled,
-   Toolbar, 
-   Hidden,
-   Paper,
-   List,
-   ListItemButton,
-   ListItemIcon,
-   ListItemText} 
+   Toolbar,
+   Paper,} 
    from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useState } from "react";
@@ -24,7 +15,6 @@ import Cajon from "./components/Cajon";
 import Index from "./components/Index";
 import Login from "./components/Login";
 import axios from "axios"
-import { useRouter } from "next/router";
 import  Aviso  from "./components/aviso"
 
 const CustomToolbar = styled(Toolbar)(({ theme }) => ({
@@ -102,19 +92,24 @@ export default function Home() {
       if (res.status === 200) {
         const resp = res.data;
         setObjeto(resp);
-      } else {
-        console.log("Cancel");
-        // handlefailopen()
+      }else{
+        alert(" Usuario no encontrado")
+        setFailed(!failed)
       }
     } catch (error) {
       console.log("Error en la petición:", error);
-      // si algo sale mal
+      setFailed(!failed)
     }
   }
 
 
   if(Object.keys(objeto).length === 0){
-    return(<Login  inicio={inicio} setObjeto={setObjeto} ></Login>)
+    return(
+      <>
+        <Login failed={failed} inicio={inicio} setObjeto={setObjeto} setFailed={setFailed} ></Login>
+        <Aviso failed={failed} handlefailclose={handlefailclose} ></Aviso>
+      </>
+    )
   }else{
     return (
       <ThemeProvider theme={theme}>
@@ -129,7 +124,6 @@ export default function Home() {
           < Content   >
             <CustomToolbar variant="dense" ></CustomToolbar>
             <Modal objeto={objeto} abierto={abierto} handleCerrar={handleCerrar} ></Modal>
-            <Aviso failed={failed} handlefailclose={handlefailclose} ></Aviso>
             <Index ></Index>
           </Content >
         </Root>

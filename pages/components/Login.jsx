@@ -4,7 +4,7 @@ import { Box, Button, Container, Grid, TextField, Typography } from '@mui/materi
 import React, { useState } from 'react'
 import { useRouter } from 'next/router';
 
-const Login = ({inicio, setObjeto}) => {
+const Login = ({failed, inicio, setObjeto, setFailed}) => {
 
     const imageUrl = 'https://www.smartinfobusiness.com/recursos/imagenes/logo-smartinfo.svg';
     const router = useRouter();
@@ -39,6 +39,7 @@ const Login = ({inicio, setObjeto}) => {
         }
 
         inicio(parametro)
+        setFailed(!failed)
     }
 
     const registro = () =>{
