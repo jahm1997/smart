@@ -37,9 +37,7 @@ const MenuBoton = styled(IconButton)(({ theme }) => ({
     display: "none"
   },
 }));
-const Title = styled(Typography)(({ theme }) => ({
-  flexGrow:1
-}));
+
 
 
 export default function Home() {
@@ -102,7 +100,7 @@ export default function Home() {
     return (
       <ThemeProvider theme={theme}>
         <Root theme={theme} >
-          <Navbar setObjeto={setObjeto} accionCaja={accionCaja} MenuBoton={MenuBoton} CustomToolbar={CustomToolbar} Title={Title}/>
+          <Navbar setObjeto={setObjeto} accionCaja={accionCaja} MenuBoton={MenuBoton} />
           <Paper sx={{ display: { md: 'block', xs: 'none' } }} >
             <Cajon open={true} handleOpen={handleOpen} variant="permanent" CustomToolbar={CustomToolbar} theme={theme} handleAbrir={handleAbrir} ></Cajon>
           </Paper>
