@@ -1,5 +1,4 @@
 const { Sequelize } = require("sequelize");
-const User = require("../models/User");
 const port = 5432;
 
 const sequelize = new Sequelize("smart", "postgres", "97113021369", {
@@ -23,5 +22,4 @@ sequelize
 
 module.exports = {
   sequelize,
-  User,
 };
