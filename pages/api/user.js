@@ -18,7 +18,6 @@ export default async function handler(req, res) {
   try {
     if (req.method === "POST") {
       const { email, password, lastName, name } = req.body;
-      console.log(req.body);
       if (email && password && lastName && name) {
         const newUser = await User.create({
           name,
@@ -37,13 +36,13 @@ export default async function handler(req, res) {
             lastName: user.lastName,
             email: user.email,
           };
-          console.log(temp);
-          console.log(password);
-          if (temp.password === password.toString()) {
+          if (temp.password === password) {
             res.status(200).json(response);
           } else {
-            res.status(400).json("Usuario no encontrado");
+            res.status(400).json({ error: "Contraseña incorrecta" });
           }
+        } else {
+          res.status(400).json({ error: "usuario no encontrado" });
         }
       }
     } else if (req.method === "GET") {

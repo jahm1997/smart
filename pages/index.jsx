@@ -89,14 +89,13 @@ export default function Home() {
   const inicio = async (data) => {
     try {
       const res = await axios.post("http://localhost:3000/api/user", data);
-      if (res.status === 200) {
         const resp = res.data;
+        console.log(resp);
         setObjeto(resp);
-      }else{
-      }
     } catch (error) {
-      console.log("Error en la petición:", error);
-      setFailed(!failed)
+      if(error){
+        setFailed(!failed)
+        }
     }
   }
 
