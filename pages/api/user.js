@@ -46,15 +46,15 @@ export default async function handler(req, res) {
         }
       }
     } else if (req.method === "GET") {
-      const { id } = req.query;
-      if (id) {
-        const user = await User.findByPk(id);
-        if (user) {
-          res.status(200).json(user);
-        } else {
-          res.status(404).json({ message: "Usuario no encontrado" });
-        }
-      }
+      // const { id } = req.query;
+      // if (id) {
+      //   const user = await User.findByPk(id);
+      //   if (user) {
+      //     res.status(200).json(user);
+      //   } else {
+      //     res.status(404).json({ message: "Usuario no encontrado" });
+      //   }
+      // }
       const allUsers = await User.findAll();
       res.status(200).json(allUsers);
     } else if (req.method === "PUT") {
