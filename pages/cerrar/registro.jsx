@@ -39,16 +39,17 @@ const Registro = (inicio) => {
     }
 
     const registro = async (data) => {
-        try {
-          const res = await axios.post(`${process.env.NEXT_PUBLIC_API}/api/user` , data);
-          if (res.status === 200) {
-            const resp = res.data;
-            router.push('/cerrar/agradecimiento');
-          } else {
-          }
-        } catch (error) {
-          console.log("Error en la petición:", error);
-        }
+        // try {
+        //   const res = await axios.post(`${process.env.NEXT_PUBLIC_API}/api/user` , data);
+        //   if (res.status === 200) {
+        //     const resp = res.data;
+        //     router.push('/cerrar/agradecimiento');
+        //   } else {
+        //   }
+        // } catch (error) {
+        //   console.log("Error en la petición:", error);
+        // }
+        alert("no es posible registrarse ahora")
       }
 
 

@@ -1,6 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 
-import { User, sequelize } from "./database";
+import { User } from "./database";
 
 const jwt = require("jsonwebtoken");
 
@@ -16,6 +16,7 @@ var validarToken = (password) => {
 
 export default async function handler(req, res) {
   var { email, password, lastName, name } = req.body;
+  console.log(req);
   try {
     if (req.method === "POST") {
       if (email && password && lastName && name) {

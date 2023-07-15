@@ -6,26 +6,34 @@ import axios from "axios";
 
 export default function Ventana({objeto, abierto, handleCerrar}) {
 
+    // const [user,setUser]=useState({
+    //     id:objeto?.id,
+    //     name:objeto?.name,
+    //     lastName:objeto?.lastName,
+    //     email:objeto?.email,
+    //     password:""
+    // })
     const [user,setUser]=useState({
-        id:objeto?.id,
-        name:objeto?.name,
-        lastName:objeto?.lastName,
-        email:objeto?.email,
-        password:""
+        id:1,
+        name:"Persona",
+        lastName:" Aleatoria",
+        email:"Oculto",
     })
 
     const actualizar = async (data) => {
-        try {
-          const res = await axios.put( `${process.env.NEXT_PUBLIC_API}/api/user` , data);
-          if (res.status === 200) {
-            const resp = res.data;
-            alert(resp.message)
+        // try {
+        //   const res = await axios.put( `${process.env.NEXT_PUBLIC_API}/api/user` , data);
+        //   if (res.status === 200) {
+        //     const resp = res.data;
+            // alert(resp.message)
+        alert("Actualizado correctamente")
+            
             handleCerrar()
-          } else {
-          }
-        } catch (error) {
-          console.log("Error en la petición:", error);
-        }
+        //   } else {
+        //   }
+        // } catch (error) {
+        //   console.log("Error en la petición:", error);
+        // }
       }
 
 

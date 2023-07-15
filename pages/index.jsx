@@ -70,16 +70,22 @@ export default function Home() {
   
 
   const inicio = async (data) => {
-    try {
-      const res = await axios.post( `${process.env.NEXT_PUBLIC_API}/api/user`, data);
-        const resp = res.data;
-        console.log(resp);
-        setObjeto(resp);
-    } catch (error) {
-      if(error){
-        setFailed(!failed)
-        }
-    }
+    // try {
+    //   const res = await axios.post( `${process.env.NEXT_PUBLIC_API}/api/user`, data);
+    //     const resp = res.data;
+    //     console.log(resp);
+    //     setObjeto(resp);
+    // } catch (error) {
+    //   if(error){
+    //     setFailed(!failed)
+    //     }
+    // }
+    setObjeto({
+        id:1,
+        name:"Persona",
+        lastName:" Aleatoria",
+        email:"Oculto",
+    });
   }
 
 
