@@ -23,7 +23,6 @@ export default async function handler(req, res) {
   } catch (error) {
     return response.status(500).json({ error });
   }
-
   // if (!petName || !ownerName) throw new Error("Pet and owner names required");
   // await sql`INSERT INTO Pets (Name, Owner) VALUES (${petName}, ${ownerName});`;
   if (req.method === "POST") {
