@@ -71,7 +71,7 @@ export default function Home() {
 
   const inicio = async (data) => {
     try {
-      const res = await axios.post( `process.env.NEXT_PUBLIC_API/api/user`, data);
+      const res = await axios.post( `${process.env.NEXT_PUBLIC_DEPLOY}/api/user`, data);
         const resp = res.data;
         console.log(resp);
         setObjeto(resp);
