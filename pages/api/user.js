@@ -1,6 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 
-import User from "./database";
+import { User, sequelize } from "./database";
 
 const jwt = require("jsonwebtoken");
 
@@ -15,9 +15,9 @@ var validarToken = (password) => {
 };
 
 export default async function handler(req, res) {
+  var { email, password, lastName, name } = req.body;
   try {
     if (req.method === "POST") {
-      const { email, password, lastName, name } = req.body;
       if (email && password && lastName && name) {
         const newUser = await User.create({
           name,
@@ -27,9 +27,12 @@ export default async function handler(req, res) {
         });
         res.status(200).json(newUser);
       } else if (email && password) {
+        console.log("--------------------------------------------------------");
         const user = await User.findOne({ where: { email } });
-        if (user) {
-          let temp = validarToken(user.password);
+        const allUsers = await User.findAll();
+        const users = allUsers.find((e) => e.dataValues.email === email);
+        if (users.dataValues) {
+          let temp = validarToken(users.dataValues.password);
           let response = {
             id: user.id,
             name: user.name,
@@ -39,9 +42,11 @@ export default async function handler(req, res) {
           if (temp.password === password) {
             res.status(200).json(response);
           } else {
+            console.log("No hay coincidencias");
             res.status(400).json({ error: "Contraseña incorrecta" });
           }
         } else {
+          console.log("Usuario no encontrado por el find");
           res.status(400).json({ error: "usuario no encontrado" });
         }
       }
@@ -64,6 +69,7 @@ export default async function handler(req, res) {
         { where: { id } }
       );
       console.log(updatedUser);
+      console.log("-----//////-------/////////------//////-----///////");
       return res
         .status(200)
         .json({ message: "Usuario Actualizado con Exito!" });

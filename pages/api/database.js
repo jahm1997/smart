@@ -12,7 +12,7 @@ const sequelize = new Sequelize(process.env.POSTGRES_URL, {
   dialect: "postgres",
   logging: true,
   alter: true,
-  force: true,
+  force: false,
   dialectOptions: {
     ssl: {
       rejectUnauthorized: false,
@@ -49,4 +49,4 @@ sequelize
     console.error("Error al sincronizar la tabla Cuentas:", error);
   });
 
-export default User;
+export { User, sequelize };
