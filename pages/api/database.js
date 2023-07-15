@@ -20,7 +20,7 @@ const sequelize = new Sequelize(process.env.POSTGRES_URL, {
   },
 });
 
-const Cuenta = sequelize.define("cuenta", {
+const User = sequelize.define("user", {
   name: {
     type: DataTypes.STRING,
     allowNull: false,
@@ -49,4 +49,4 @@ sequelize
     console.error("Error al sincronizar la tabla Cuentas:", error);
   });
 
-export default Cuenta;
+export default User;
