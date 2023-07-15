@@ -6,7 +6,8 @@ import {
    styled,
    Toolbar,
    Paper,
-   useMediaQuery
+   useMediaQuery,
+   Box
   } 
    from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
@@ -19,9 +20,9 @@ import Login from "./components/Login";
 import axios from "axios"
 import  Aviso  from "./components/aviso"
 
-const CustomToolbar = styled(Toolbar)(({ theme }) => ({
-  ...theme.mixins.toolbar
-}));
+// const CustomToolbar = styled(Toolbar)(({ theme }) => ({
+//   ...theme.mixins.toolbar
+// }));
 const Content = styled("div")(({ theme }) => ({
   flexGrow: 1,
   backgroundColor: theme.palette.background.default,
@@ -99,20 +100,20 @@ export default function Home() {
   }else{
     return (
       <ThemeProvider theme={theme}>
-        <Root theme={theme} >
+        <Box component="div" sx={{ display: 'flex'}}>
           <Navbar setObjeto={setObjeto} accionCaja={accionCaja} MenuBoton={MenuBoton} />
           <Paper sx={{ display: { md: 'block', xs: 'none' } }} >
-            <Cajon open={true} handleOpen={handleOpen} variant="permanent" CustomToolbar={CustomToolbar} theme={theme} handleAbrir={handleAbrir} ></Cajon>
+            <Cajon open={true} handleOpen={handleOpen} variant="permanent" handleAbrir={handleAbrir} ></Cajon>
           </Paper>
           <Paper sx={{ display: { md: 'block', xs: 'none' } }} >
-            <Cajon open={caja} handleOpen={handleOpen} variant="temporary"  CustomToolbar={CustomToolbar} theme={theme} onClose={accionCaja} handleAbrir={handleAbrir}></Cajon>
+            <Cajon open={caja} handleOpen={handleOpen} variant="temporary" onClose={accionCaja} handleAbrir={handleAbrir}></Cajon>
           </Paper>
           < Content   >
-            <CustomToolbar variant="dense" ></CustomToolbar>
+            <Toolbar variant="dense" ></Toolbar>
             <Modal objeto={objeto} abierto={abierto} handleCerrar={handleCerrar} ></Modal>
             <Index ></Index>
           </Content >
-        </Root>
+        </Box>
       </ThemeProvider>
     );
   }
