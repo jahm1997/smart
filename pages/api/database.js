@@ -12,7 +12,7 @@ const sequelize = new Sequelize(process.env.POSTGRES_URL, {
   dialect: "postgres",
   logging: true,
   alter: true,
-  force: false,
+  force: true,
   dialectOptions: {
     ssl: {
       rejectUnauthorized: false,
@@ -20,7 +20,7 @@ const sequelize = new Sequelize(process.env.POSTGRES_URL, {
   },
 });
 
-const Cuenta = sequelize.define("user", {
+const Cuenta = sequelize.define("cuenta", {
   name: {
     type: DataTypes.STRING,
     allowNull: false,
