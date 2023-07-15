@@ -1,12 +1,8 @@
 import {
-   AppBar,
-   Drawer,
    IconButton,
-   Typography,
    styled,
    Toolbar,
    Paper,
-   useMediaQuery,
    Box
   } 
    from "@mui/material";
@@ -20,9 +16,6 @@ import Login from "./components/Login";
 import axios from "axios"
 import  Aviso  from "./components/aviso"
 
-// const CustomToolbar = styled(Toolbar)(({ theme }) => ({
-//   ...theme.mixins.toolbar
-// }));
 const Content = styled("div")(({ theme }) => ({
   flexGrow: 1,
   backgroundColor: theme.palette.background.default,
@@ -78,7 +71,7 @@ export default function Home() {
 
   const inicio = async (data) => {
     try {
-      const res = await axios.post("http://localhost:3000/api/user", data);
+      const res = await axios.post( `process.env.NEXT_PUBLIC_API/api/user`, data);
         const resp = res.data;
         console.log(resp);
         setObjeto(resp);

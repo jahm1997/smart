@@ -4,9 +4,6 @@ import React, { useState } from 'react'
 import axios from 'axios';
 import Image from 'next/image';
 
-
-  var url = "http://api.weatherapi.com/v1/current.json?key=63cc260de670441e89d14341231407&q${}&aqi=no"
-
 const Index = () => {
   
   const[city, setCity]=useState("")

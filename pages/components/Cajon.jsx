@@ -2,7 +2,7 @@ import { Divider, Drawer, Toolbar } from '@mui/material';
 import React from 'react';
 import Lista from './Lista';
 
-export default function Cajon({ variant, Drawere, CustomToolbar, theme, open, onClose = null, handleAbrir }) {
+export default function Cajon({ variant, open, onClose = null, handleAbrir }) {
   const handleClose = onClose ? onClose : null;
 
   return (

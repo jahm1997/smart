@@ -16,7 +16,7 @@ export default function Ventana({objeto, abierto, handleCerrar}) {
 
     const actualizar = async (data) => {
         try {
-          const res = await axios.put("http://localhost:3000/api/user", data);
+          const res = await axios.put( `process.env.NEXT_PUBLIC_API/api/user` , data);
           if (res.status === 200) {
             const resp = res.data;
             alert(resp.message)

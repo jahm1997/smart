@@ -1,12 +1,22 @@
 import { Sequelize, DataTypes } from "sequelize";
 
-const sequelize = new Sequelize("smart", "postgres", "97113021369", {
-  host: "localhost",
-  dialect: "postgres",
-  logging: true,
-  alter: true,
-  force: false,
-});
+const sequelize = new Sequelize(
+  `postgres://${process.env.USER_DATABASE}:${process.env.PASSWORD_DATABASE}@${process.env.HOST_DATABASE}:${process.env.PORT}/${process.env.NAME_DATABASE}`,
+  {
+    logging: false,
+    native: false,
+    alter: true,
+    force: true,
+  }
+);
+
+// const sequelize = new Sequelize("smart", "postgres", "97113021369", {
+//   host: "localhost",
+//   dialect: "postgres",
+//   logging: true,
+//   alter: true,
+//   force: false,
+// });
 
 const User = sequelize.define("user", {
   name: {
