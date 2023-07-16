@@ -6,32 +6,32 @@ import axios from "axios";
 
 export default function Ventana({objeto, abierto, handleCerrar}) {
 
-    const [user,setUser]=useState({
-        id:objeto?.id,
-        name:objeto?.name,
-        lastName:objeto?.lastName,
-        email:objeto?.email,
-        password:""
-    })
     // const [user,setUser]=useState({
-    //     id:1,
-    //     name:"Persona",
-    //     lastName:" Aleatoria",
-    //     email:"Oculto",
+    //     id:objeto?.id,
+    //     name:objeto?.name,
+    //     lastName:objeto?.lastName,
+    //     email:objeto?.email,
+    //     password:""
     // })
+    const [user,setUser]=useState({
+        id:1,
+        name:"Persona",
+        lastName:" Aleatoria",
+        email:"Oculto",
+    })
 
     const actualizar = async (data) => {
-        console.log(data)
-        try {
-          const res = await axios.patch( `${process.env.NEXT_PUBLIC_API}/user` , data);
-          if (res.status === 200 || res.status === 201) {
-            alert(res.data)
-            handleCerrar()
-          } else {
-          }
-        } catch (error) {
-          console.log("Error en la petición:", error);
-        }
+        // console.log(data)
+        // try {
+        //   const res = await axios.patch( `${process.env.NEXT_PUBLIC_API}/user` , data);
+        //   if (res.status === 200 || res.status === 201) {
+        //     alert(res.data)
+        //     handleCerrar()
+        //     } 
+        // } catch (error) {
+        //     console.log("Error en la petición:", error);
+        // }
+        handleCerrar()
       }
 
 
