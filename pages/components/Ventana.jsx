@@ -6,34 +6,32 @@ import axios from "axios";
 
 export default function Ventana({objeto, abierto, handleCerrar}) {
 
-    // const [user,setUser]=useState({
-    //     id:objeto?.id,
-    //     name:objeto?.name,
-    //     lastName:objeto?.lastName,
-    //     email:objeto?.email,
-    //     password:""
-    // })
     const [user,setUser]=useState({
-        id:1,
-        name:"Persona",
-        lastName:" Aleatoria",
-        email:"Oculto",
+        id:objeto?.id,
+        name:objeto?.name,
+        lastName:objeto?.lastName,
+        email:objeto?.email,
+        password:""
     })
+    // const [user,setUser]=useState({
+    //     id:1,
+    //     name:"Persona",
+    //     lastName:" Aleatoria",
+    //     email:"Oculto",
+    // })
 
     const actualizar = async (data) => {
-        // try {
-        //   const res = await axios.put( `${process.env.NEXT_PUBLIC_API}/api/user` , data);
-        //   if (res.status === 200) {
-        //     const resp = res.data;
-            // alert(resp.message)
-        alert("Actualizado correctamente")
-            
+        console.log(data)
+        try {
+          const res = await axios.patch( `${process.env.NEXT_PUBLIC_API}/user` , data);
+          if (res.status === 200 || res.status === 201) {
+            alert(res.data)
             handleCerrar()
-        //   } else {
-        //   }
-        // } catch (error) {
-        //   console.log("Error en la petición:", error);
-        // }
+          } else {
+          }
+        } catch (error) {
+          console.log("Error en la petición:", error);
+        }
       }
 
 
@@ -45,7 +43,7 @@ export default function Ventana({objeto, abierto, handleCerrar}) {
 
     return(
         <>
-            <Modal
+            <Modal 
                 sx={{
                     display: "flex",
                     width: "auto",
@@ -62,6 +60,22 @@ export default function Ventana({objeto, abierto, handleCerrar}) {
                     backgroundColor: "orchid",
                     boxShadow: 30,
                     p: 6,
+                    [`@media (min-width:1000px)`]: {
+                        width: "md",
+                        marginLeft: '110px',
+                        
+                    },
+                    [`@media (max-width:640px)`]: {
+                        maxWidth: '100%',
+                        width: "100",
+                        display:"block"
+                    },
+                    [`@media (max-width:500px)`]: {
+                        maxWidth: '100%',
+                        width: "100",
+                        display:"none"
+                    }
+
 
                 }}
 
