@@ -1,4 +1,4 @@
-import { Box, Container, Grid, TextField, Typography } from '@mui/material'
+import { Box, Container, Grid, TextField, Typography, Toolbar } from '@mui/material'
 import LoadingButton from '@mui/lab/LoadingButton';
 import React, { useState } from 'react'
 import axios from 'axios';
@@ -52,9 +52,10 @@ const Index = () => {
   return (
     <Container
       maxWidth="xs"
-      sx={{ align:'center', textAlign:"center"}}
+      sx={{ align:'center', textAlign:"center", marginTop:"5%"}}
 
     >
+      <Toolbar></Toolbar>
 
       <Typography
         variant='h3'

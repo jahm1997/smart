@@ -7,9 +7,9 @@ export default function Cajon({ variant, open, onClose = null, handleAbrir }) {
 
   return (
     <Drawer sx={{
-      width: 240,
-      flexShrink: 0
-    }} variant={variant} classes={{ paper: 240 }} anchor="left" open={open} onClose={handleClose}>
+      // width: 240,
+      // flexShrink: 0
+    }} variant={variant} classes={{ paper: 240 }}  anchor="left" open={open} onClose={handleClose}>
       <Toolbar />
       <Divider />
       <Lista handleAbrir={handleAbrir} />

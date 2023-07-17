@@ -3,7 +3,8 @@ import {
    styled,
    Toolbar,
    Paper,
-   Box
+   Box,
+   Grid
   } 
    from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
@@ -17,7 +18,6 @@ import axios from "axios"
 import  Aviso  from "./components/aviso"
 
 const Content = styled("div")(({ theme }) => ({
-  flexGrow: 1,
   backgroundColor: theme.palette.background.default,
   padding: theme.spacing(3)
 }));
@@ -98,20 +98,22 @@ export default function Home() {
   }else{
     return (
       <ThemeProvider theme={theme}>
-        <Box component="div" sx={{ display: 'flex'}}>
-          <Navbar setObjeto={setObjeto} accionCaja={accionCaja} MenuBoton={MenuBoton} />
-          <Paper sx={{ display: { md: 'block', xs: 'none' } }} >
-            <Cajon open={true} handleOpen={handleOpen} variant="permanent" handleAbrir={handleAbrir} ></Cajon>
-          </Paper>
-          <Paper sx={{ display: { md: 'block', xs: 'none' } }} >
-            <Cajon open={caja} handleOpen={handleOpen} variant="temporary" onClose={accionCaja} handleAbrir={handleAbrir}></Cajon>
-          </Paper>
-          < Content   >
-            <Toolbar variant="dense" ></Toolbar>
-            <Modal objeto={objeto} abierto={abierto} handleCerrar={handleCerrar} ></Modal>
-            <Index ></Index>
-          </Content >
-        </Box>
+        <Grid container  justifyContent="center" >
+            <Navbar setObjeto={setObjeto} accionCaja={accionCaja} MenuBoton={MenuBoton} />
+            <Box component="div" item  sx={{ display: 'flex'}}>
+              <Paper sx={{ display: { md: 'block', xs: 'none', } }} >
+                <Cajon open={true} handleOpen={handleOpen} variant="permanent" handleAbrir={handleAbrir} ></Cajon>
+              </Paper>
+              <Paper sx={{ display: { md: 'block', xs: 'none' } }} >
+                <Cajon open={caja} handleOpen={handleOpen} variant="temporary" onClose={accionCaja} handleAbrir={handleAbrir}></Cajon>
+              </Paper>
+              <Grid item xs={12} sx={{flexGrow: 1, display:"flex", justifyContent:"center"}} >
+                <Toolbar variant="dense" ></Toolbar>
+                <Modal objeto={objeto} abierto={abierto} handleCerrar={handleCerrar} ></Modal>
+                  <Index  ></Index>
+              </Grid>
+            </Box>
+        </Grid>
       </ThemeProvider>
     );
   }
