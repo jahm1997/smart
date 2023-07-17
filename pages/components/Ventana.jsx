@@ -21,17 +21,17 @@ export default function Ventana({objeto, abierto, handleCerrar}) {
     })
 
     const actualizar = async (data) => {
-        // console.log(data)
-        // try {
-        //   const res = await axios.patch( `${process.env.NEXT_PUBLIC_API}/user` , data);
-        //   if (res.status === 200 || res.status === 201) {
-        //     alert(res.data)
-        //     handleCerrar()
-        //     } 
-        // } catch (error) {
-        //     console.log("Error en la petición:", error);
-        // }
-        handleCerrar()
+        console.log(data)
+        try {
+          const res = await axios.patch( `${process.env.NEXT_PUBLIC_DEPLOY}/user` , data);
+          if (res.status === 200 || res.status === 201) {
+            alert(res.data)
+            handleCerrar()
+            } 
+        } catch (error) {
+            console.log("Error en la petición:", error);
+        }
+        // handleCerrar()
       }
 
 
