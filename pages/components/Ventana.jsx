@@ -6,19 +6,19 @@ import axios from "axios";
 
 export default function Ventana({objeto, abierto, handleCerrar}) {
 
-    // const [user,setUser]=useState({
-    //     id:objeto?.id,
-    //     name:objeto?.name,
-    //     lastName:objeto?.lastName,
-    //     email:objeto?.email,
-    //     password:""
-    // })
     const [user,setUser]=useState({
-        id:1,
-        name:"Persona",
-        lastName:" Aleatoria",
-        email:"Oculto",
+        id:objeto?.id,
+        name:objeto?.name,
+        lastName:objeto?.lastName,
+        email:objeto?.email,
+        password:""
     })
+    // const [user,setUser]=useState({
+    //     id:1,
+    //     name:"Persona",
+    //     lastName:" Aleatoria",
+    //     email:"Oculto",
+    // })
 
     const actualizar = async (data) => {
         console.log(data)
