@@ -53,26 +53,30 @@ const Login = ({inicio }) => {
             <Grid container spacing={2} textAlign="center" sx={{ height:"100%"}}  >
                 <Grid
                     item
-                    xs={6}
+                    md={6}
                     sx={{
                         // backgroundColor: 'green',
-                        display: { xs: 'none', sm: 'block' },
+                        display: { [`@media (max-width:900px)`]: {
+                            display:"none"
+                            
+                        }, },
                 }}>
-                    <Box >
-                        <Image src={imageUrl} width="500" height="500" alt="Logo SmartInfo" />
+                    <Box sx={{marginLeft:-2}} >
+                        <Image src={imageUrl} width="450" height="450" alt="Logo SmartInfo" />
                     </Box>
                 </Grid>
                 
                 <Grid 
                     item
                     xs={12}
-                    sm={6}
+                    md={6}
                     sx={{
                         // backgroundColor: "red",
-                        width:{
-                            xs: '100%',
-                            sm: 'auto' 
-                        },
+                        // width:{
+                        //     xs: '100%',
+                        //     sm: 'auto' 
+                        // },
+                        height:"auto",
                         alignItems:"center",
                         textAlign:"center",
                         justify:"center"
@@ -116,8 +120,8 @@ const Login = ({inicio }) => {
                             required
 
                         ></TextField>
-                        <Button type='submit' variant='contained' sx={{ margin:"2%"}} > Iniciar Sesion  <LoginIcon/> </Button>
                     </Box>
+                        <Button type='submit' variant='contained' sx={{ margin:"2%"}} > Iniciar Sesion  <LoginIcon/> </Button>
                     <Typography color={'CaptionText'} sx={{padding: 2}} >
                         ¿ Aun no tienes una cuenta ?
                     </Typography>
@@ -125,8 +129,8 @@ const Login = ({inicio }) => {
                         Conecta con nosotros!
                         
                     </Typography>
-                    <Button sx={{padding: 2}} onClick={registro} >Registrarse <CoPresentIcon sx={{marginLeft: 2}} /> </Button>
                     
+                    <Button sx={{padding: 2}} onClick={registro} >Registrarse <CoPresentIcon sx={{marginLeft: 2}} /> </Button>
                 </Grid>
             </Grid>
         </Container>
