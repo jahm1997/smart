@@ -83,7 +83,7 @@ const Registro = (inicio) => {
                 xs={6}
                 sx={{
                     // backgroundColor: 'green',
-                    display: { xs: 'none', sm: 'block' },
+                    display: { xs: 'none', lg: 'block' },
             }}>
                 <Box>
                 <ImageList sx={{ width: 550, height: 450}}>
