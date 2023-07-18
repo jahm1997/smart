@@ -39,7 +39,7 @@ const Login = ({inicio }) => {
                 menssage: "Email Incorrecto"
             })
         }
-
+        console.log("Pulsaste inciar sesion");
         inicio(parametro)
     }
 
