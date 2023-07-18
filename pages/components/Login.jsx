@@ -120,8 +120,9 @@ const Login = ({inicio }) => {
                             required
 
                         ></TextField>
-                    </Box>
+                        <br />
                         <Button type='submit' variant='contained' sx={{ margin:"2%"}} > Iniciar Sesion  <LoginIcon/> </Button>
+                    </Box>
                     <Typography color={'CaptionText'} sx={{padding: 2}} >
                         ¿ Aun no tienes una cuenta ?
                     </Typography>
