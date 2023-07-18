@@ -56,8 +56,8 @@ export default function Ventana({objeto, abierto, handleCerrar}) {
                     transform: "translate(-50%, -50%)",
                     // backgroundColor: "HighlightText",
                     // backgroundColor: "ghostwhite",
-                    // backgroundColor: "lightblue",
-                    backgroundColor: "orchid",
+                    backgroundColor: "lightblue",
+                    // backgroundColor: "orchid",
                     boxShadow: 30,
                     p: 6,
                     [`@media (min-width:1000px)`]: {
@@ -67,13 +67,18 @@ export default function Ventana({objeto, abierto, handleCerrar}) {
                     },
                     [`@media (max-width:640px)`]: {
                         maxWidth: '100%',
-                        width: "100",
-                        display:"block"
+                        height:550,
+                        top: "27%",
+                        left: "30%",
+                        transform: "translate(-20%, -20%)",
                     },
-                    [`@media (max-width:500px)`]: {
+                    [`@media (max-width:445px)`]: {
                         maxWidth: '100%',
                         width: "100",
-                        display:"none"
+                        top: "27%",
+                        left: "20%",
+                        transform: "translate(-20%, -20%)",
+                        p: 2,
                     }
 
 
@@ -85,7 +90,13 @@ export default function Ventana({objeto, abierto, handleCerrar}) {
                 aria-describedby="modal-modal-description"
             >
                 <Box>
-                    <Typography style={{ color: 'white' }} variant="h4" >Cambiar datos de perfil</Typography>
+                    <Typography style={{ color: 'white' }} sx={{ fontSize:"35px" , 
+                    [`@media (max-width:640px)`]: {
+                         fontSize:"28px"
+                            },
+                            [`@media (max-width:445px)`]: {
+                                fontSize:"20px"
+                                   }}} >Cambiar datos de perfil</Typography>
                     <Box component="form" onSubmit={hableSubmit} >
                         <TextField
                             
@@ -99,14 +110,22 @@ export default function Ventana({objeto, abierto, handleCerrar}) {
                             style={{ color: 'white' }}
                             sx={{ 
                                 margin:"2%",
-                                width:"70%",
+                                width:"90%",
+                                // [`@media (max-width:640px)`]: {
+                                //     margin:"2%",
+                                //     width:"50%",
+                                //        },
+                                //        [`@media (max-width:445px)`]: {
+                                //             margin:"2%",
+                                //             width:"30%",
+                                //               }
                                 }}
                         
                         ></TextField>
                         <TextField
                             sx={{ 
                                 margin:"2%",
-                                width:"70%",
+                                width:"90%",
                                 }}
                             label="Apellidos"
                             type='text'
@@ -120,7 +139,7 @@ export default function Ventana({objeto, abierto, handleCerrar}) {
                         <TextField
                             sx={{ 
                                 margin:"2%",
-                                width:"70%",
+                                width:"90%",
                                 }}
                             label="Email"
                             type='email'
@@ -134,7 +153,7 @@ export default function Ventana({objeto, abierto, handleCerrar}) {
                         <TextField
                             sx={{ 
                                 margin:"2%",
-                                width:"70%",
+                                width:"90%",
                                 }}
                             label="Password"
                             type='password'
@@ -145,8 +164,10 @@ export default function Ventana({objeto, abierto, handleCerrar}) {
                             required
 
                         ></TextField>
-                        <Button type='submit' variant="contained" sx={{ marginTop: 2}} color="primary" size="large" > <AddReactionIcon/>  Actualizar Datos ! </Button>
-                        <Button onClick={handleCerrar} variant="contained" sx={{ marginTop: 2, marginLeft: "3%"}} color="primary" size="large" > <ChevronLeftIcon /> <ChevronLeftIcon sx={{margin:-2}} /> <ChevronLeftIcon/> Atras </Button>
+                        <Button type='submit' variant="contained" sx={{ marginTop: 2,[`@media (max-width:445px)`]: { fontSize:"small"
+                            }}} color="primary" size="large" > <AddReactionIcon/>  Actualizar Datos ! </Button>
+                        <Button onClick={handleCerrar} variant="contained" sx={{ marginTop: 2, marginLeft: "3%",[`@media (max-width:445px)`]: { fontSize:"small"
+                            }}} color="primary" size="large" > <ChevronLeftIcon /> <ChevronLeftIcon sx={{margin:-2}} /> <ChevronLeftIcon/> Atras </Button>
                     </Box>
                 </Box>
             </Modal>
