@@ -4,7 +4,7 @@ export default function Document() {
   return (
     <Html lang="es">
       <Head>
-        <title>Smart Info</title>
+        <title>Smart Delta</title>
       </Head>
       <body>
         <Main />
