@@ -1,14 +1,18 @@
 import LoginIcon from '@mui/icons-material/Login';
 import CoPresentIcon from '@mui/icons-material/CoPresent';
-import { Box, Button, Container, Grid, TextField, Typography } from '@mui/material'
+import { Box, Button, Container, Grid, Link, TextField, Typography } from '@mui/material'
 import React, { useState } from 'react'
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 
+// import { useUser } from '@auth0/nextjs-auth0/client';
 
 const Login = ({inicio }) => {
+  
+//   const { user } = useUser();
+//   user && console.log("Este es usuario de google")
 
-    const imageUrl = 'https://www.smartinfobusiness.com/recursos/imagenes/logo-smartinfo.svg';
+    const imageUrl = 'https://media.licdn.com/dms/image/D4E35AQHx-vyDrt5V3g/profile-framedphoto-shrink_200_200/0/1689807959697?e=1690905600&v=beta&t=F9u2Z6dPV3JShZdSPOxKYVrTkMLmfY2njs5sS0rKwEw';
     const router = useRouter();
     
     const [parametro, setParametro] = useState({
@@ -61,7 +65,7 @@ const Login = ({inicio }) => {
                         }, },
                 }}>
                     <Box sx={{marginLeft:-2}} >
-                        <Image src={imageUrl} width="450" height="450" alt="Logo SmartInfo" />
+                        {/* <Image src={imageUrl} width="450" height="450" alt="Logo SmartInfo" /> */}
                     </Box>
                 </Grid>
                 
@@ -127,11 +131,16 @@ const Login = ({inicio }) => {
                     </Typography>
                     <Typography color={'CaptionText'} >
                         Conecta con nosotros!
-                        
                     </Typography>
                     
                     <Button sx={{padding: 2}} onClick={registro} >Registrarse <CoPresentIcon sx={{marginLeft: 2}} /> </Button>
-                </Grid>
+
+                    <Typography color={'CaptionText'} sx={{padding: 2}} >
+                        ¡Tambien puedes conectar con terceros!
+                    </Typography>
+                    
+                    <a sx={{marginBottom:5, padding:1, border:2, borderRadius:5, }} component="button" variant='h5' href="/api/auth/login">Iniciar sesión con google</a>
+                </Grid> 
             </Grid>
         </Container>
 

@@ -85,7 +85,7 @@ const Registro = (inicio) => {
                     // backgroundColor: 'green',
                     display: { xs: 'none', lg: 'block' },
             }}>
-                <Box>
+                {/* <Box>
                 <ImageList sx={{ width: 550, height: 450}}>
                     <ImageListItem   key="Subheader" cols={2}>
                     <Box component="div" sx={{ typography: 'body1', fontFamily: '-moz-initial' }}>
@@ -117,7 +117,7 @@ const Registro = (inicio) => {
                     </ImageListItem>
                     ))}
                     </ImageList>
-                </Box>
+                </Box> */}
             </Grid>
             
             <Grid 

@@ -32,11 +32,12 @@ const MenuBoton = styled(IconButton)(({ theme }) => ({
   },
 }));
 
-
+// import { useUser } from '@auth0/nextjs-auth0/client';
 
 export default function Home() {
   
-  
+  // const { user, error, isLoading } = useUser();
+  // user && console.log("Este es usuario de google")
   const theme = createTheme();
   
   const [open, setOpen] = useState(false);
