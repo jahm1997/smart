@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   productionBrowserSourceMaps: true,
   images: {
-    domains: ["www.smartinfobusiness.com", "cdn.weatherapi.com"],
+    domains: ["www.linkedin.com", "cdn.weatherapi.com"],
   },
 };
 

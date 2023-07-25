@@ -7,11 +7,11 @@ import HomeIcon from '@mui/icons-material/Home';
 export default function Lista({handleAbrir}) {
     return (
         <List component="nav" sx={{width: 240}} >
-            <ListItemButton component="a" href="https://www.smartinfobusiness.com/">
+            <ListItemButton component="a" href="https://www.linkedin.com/in/joseph-angel-herrera-mantilla/">
               <ListItemIcon sx={{ fontSize: 20 }}>🔥</ListItemIcon>
               <ListItemText
                 sx={{ my: 0 }}
-                primary="Smart Info"
+                primary="Smart Delta"
                 primaryTypographyProps={{
                   fontSize: 20,
                   fontWeight: 'medium',
