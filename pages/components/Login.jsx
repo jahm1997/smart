@@ -139,7 +139,7 @@ const Login = ({inicio }) => {
                         ¡Tambien puedes conectar con terceros!
                     </Typography>
                     
-                    <a sx={{marginBottom:5, padding:1, border:2, borderRadius:5, }} component="button" variant='h5' href="/api/auth/login">Iniciar sesión con google</a>
+                    {/* <a sx={{marginBottom:5, padding:1, border:2, borderRadius:5, }} component="button" variant='h5' href="/api/auth/login">Iniciar sesión con google</a> */}
                 </Grid> 
             </Grid>
         </Container>
