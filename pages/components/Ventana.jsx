@@ -5,7 +5,7 @@ import { useState } from "react";
 import axios from "axios";
 
 export default function Ventana({objeto, abierto, handleCerrar}) {
-
+    console.log(objeto)
     const [user,setUser]=useState({
         id:objeto?.id,
         name:objeto?.name,
