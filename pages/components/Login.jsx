@@ -65,7 +65,7 @@ const Login = ({inicio }) => {
                         }, },
                 }}>
                     <Box sx={{marginLeft:-2}} >
-                        {/* <Image src={imageUrl} width="450" height="450" alt="Logo SmartInfo" /> */}
+                        <Image src={imageUrl} width="450" height="450" alt="Logo mio" />
                     </Box>
                 </Grid>
                 
@@ -139,7 +139,7 @@ const Login = ({inicio }) => {
                         ¡Tambien puedes conectar con terceros!
                     </Typography>
                     
-                    {/* <a sx={{marginBottom:5, padding:1, border:2, borderRadius:5, }} component="button" variant='h5' href="/api/auth/login">Iniciar sesión con google</a> */}
+                    {/* <a sx={{marginBottom:5, padding:1, border:2, borderRadius:5, }} component="button" variant='h5' href="#">Iniciar sesión con google</a> */}
                 </Grid> 
             </Grid>
         </Container>
