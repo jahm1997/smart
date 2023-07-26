@@ -41,7 +41,7 @@ export default function Navbar({accionCaja, setObjeto }) {
           }
         }} />
         <Typography variant="h5" flexGrow="1" marginLeft="2%" >
-          SMART INFO
+          SMART DELTA
         </Typography>
         <Button sx={{ borderLeft: 1 }} onClick={() => setObjeto({})} variant="text" color="inherit">
           <LogoutIcon />

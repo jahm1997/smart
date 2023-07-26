@@ -73,6 +73,9 @@ export default function Home() {
     try {
       const res = await axios.post( `${process.env.NEXT_PUBLIC_DEPLOY}/user`, data);
         const resp = res.data;
+        console.log(resp)
+        console.log("---------------")
+        console.log(data)
         setObjeto(resp);
     } catch (error) {
       if(error){
